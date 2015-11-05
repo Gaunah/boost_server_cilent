@@ -1,8 +1,8 @@
-#include <stdlib.h>
-#include <iostream>
-#include <string>
 #include <boost/asio.hpp>
 #include <boost/smart_ptr.hpp>
+#include <iostream>
+#include <stdlib.h>
+#include <string>
 #include <boost/thread/thread.hpp>
 
 using boost::asio::ip::tcp;
@@ -18,7 +18,7 @@ void session(socket_ptr sock){
 		boost::system::error_code error;
 		while(true){ 
 			char data[BUFFER_SIZE] = {};
-			size_t length = sock->read_some(boost::asio::buffer(data), error);
+			//size_t length = sock->read_some(boost::asio::buffer(data), error);
 			if(error == boost::asio::error::eof){
 				break; //Connection closed by client
 			} else if(error){
